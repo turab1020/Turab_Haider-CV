@@ -1,1 +1,32 @@
-/* Portfolio Styles */
+:root {
+    --bg-base: #A4550A;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --mesh-1: #43000D;
+    --mesh-2: #673400;
+    --mesh-3: #4C4A45;
+    --mesh-4: #3E2723;
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 255, 255, 0.4);
+    --card-radius: 32px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 17px;
+}
