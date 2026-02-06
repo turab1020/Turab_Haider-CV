@@ -2,18 +2,17 @@
 
 A modern, responsive CV/Portfolio website built with HTML, CSS, and JavaScript featuring a glassmorphism design with animated mesh gradients.
 
-![Preview](images/preview.png)
-
 ## 👤 Student Information
 
 - **Name:** Turab Haider
-- **Roll Number:** [Your Roll Number Here]
+- **Roll Number:** 23L-0995
 - **Course:** Web Programming
 - **Institution:** FAST NUCES, Lahore
 
-## 🔗 Live Demo
+## 🔗 Links
 
-**[View Live Website](https://your-vercel-url.vercel.app)**
+- **GitHub:** [github.com/turab1020/CV-Portfolio-Resume](https://github.com/turab1020/CV-Portfolio-Resume)
+- **Visit Live:** [Resume_[Turab Haider]](https://cv-portfolio-resume.vercel.app)
 
 ## ✨ Features
 
@@ -67,17 +66,16 @@ cv-portfolio/
 
 ## 🚀 Deployment
 
-This project is deployed on **Vercel**:
-
-1. Connected GitHub repository to Vercel
-2. Automatic deployments on push to main branch
-3. Live URL: [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)
+This project can be deployed on any static hosting platform:
+- Vercel
+- Netlify
+- GitHub Pages
 
 ## 💻 Local Development
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/cv-portfolio.git
+   git clone https://github.com/turab1020/CV-Portfolio-Resume.git
    ```
 
 2. Open `index.html` in your browser or use a local server:

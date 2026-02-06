@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Turab Haider - Computer Science Student CV">
+    <meta name="description" content="Turab Haider - Computer Science Student CV Portfolio">
+    <meta name="theme-color" content="#A4550A">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Turab Haider | CS Portfolio</title>
     
-    <link rel="stylesheet" href="css/style.css">
-    
+    <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Critical CSS first -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Fonts with display=swap for fast rendering -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome with non-blocking load -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
 
@@ -154,7 +163,7 @@
                             <div class="content-wrapper">
                                 <p>A graphical game featuring complex grid logic, candy matching algorithms, and smooth animations using the SFML library.</p>
                                 <div class="project-preview">
-                                    <video src="images/candy-crush-demo.mp4" muted loop autoplay></video>
+                                    <video src="images/candy-crush-demo.mp4" muted loop playsinline preload="none"></video>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +183,7 @@
                             <div class="content-wrapper">
                                 <p>A robust console application handling user logins, secure transactions, withdrawals, and account management logic.</p>
                                 <div class="project-preview">
-                                    <video src="images/banking-demo.mp4" muted loop autoplay></video>
+                                    <video src="images/banking-demo.mp4" muted loop playsinline preload="none"></video>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +203,7 @@
                             <div class="content-wrapper">
                                 <p>Low-level game development interacting directly with video memory and keyboard interrupts for high-performance typing mechanics.</p>
                                 <div class="project-preview">
-                                    <video src="images/assembly-demo.mp4" muted loop autoplay></video>
+                                    <video src="images/assembly-demo.mp4" muted loop playsinline preload="none"></video>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +223,7 @@
                             <div class="content-wrapper">
                                 <p>Developing a mobile solution with local notifications, offline storage, and real-time database integration.</p>
                                 <div class="project-preview portrait">
-                                    <video src="images/app-demo.mp4" muted loop autoplay></video>
+                                    <video src="images/app-demo.mp4" muted loop playsinline preload="none"></video>
                                 </div>
                             </div>
                         </div>

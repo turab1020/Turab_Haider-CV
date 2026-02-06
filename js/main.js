@@ -17,9 +17,14 @@ function toggleAccordion(element) {
     } else {
         element.classList.add('active');
         
-        // Auto-play the video when the card opens
+        // Load and play the video when the card opens
         const video = element.querySelector('video');
         if (video) {
+            // Set preload to auto when opening to start loading
+            if (video.preload === 'none') {
+                video.preload = 'auto';
+                video.load();
+            }
             video.play().catch(() => {
                 // Autoplay might be blocked by the browser, which is fine
             });

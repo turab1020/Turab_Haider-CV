@@ -105,6 +105,7 @@ body {
     z-index: -1;
     background: var(--bg-base);
     overflow: hidden;
+    contain: strict; /* Performance optimization */
 }
 
 .mesh-color {
@@ -115,6 +116,8 @@ body {
     opacity: 0.6;
     filter: blur(80px);
     mix-blend-mode: hard-light;
+    will-change: transform; /* GPU acceleration hint */
+    transform: translateZ(0); /* Force GPU layer */
 }
 
 .color-1 {
@@ -1246,6 +1249,12 @@ body.light-mode .download-btn:hover {
         --card-radius: 20px;
     }
     
+    /* Reduce animation intensity on mobile for performance */
+    .mesh-color {
+        filter: blur(60px);
+        opacity: 0.5;
+    }
+    
     .container {
         padding: 90px 14px 40px;
     }
@@ -1529,6 +1538,12 @@ body.light-mode .download-btn:hover {
 @media (max-width: 480px) {
     :root {
         --card-radius: 18px;
+    }
+    
+    /* Further reduce animation intensity on small screens */
+    .mesh-color {
+        filter: blur(40px);
+        opacity: 0.4;
     }
     
     body {
