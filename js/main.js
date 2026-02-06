@@ -42,5 +42,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    console.log('Portfolio initialized');
+    const sections = document.querySelectorAll('section[id], header[id], footer[id]');
+    const navLinks = document.querySelectorAll('.pill-nav-link');
+
+    const updateActiveNav = () => {
+        let currentSection = '';
+        const scrollPosition = window.scrollY + 150;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        if (window.scrollY < 100) {
+            currentSection = 'profile';
+        }
+        
+        if (window.scrollY + windowHeight >= documentHeight - 50) {
+            currentSection = 'download';
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + currentSection) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+
+    console.log('Portfolio fully loaded');
 });
