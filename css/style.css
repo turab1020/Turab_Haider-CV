@@ -89,9 +89,7 @@ body {
     transition: color 0.3s ease;
     font-size: clamp(15px, 2.5vw, 17px); /* Fluid base font size */
     -webkit-text-size-adjust: 100%; /* Prevent iOS text size adjustment */
-    -moz-text-size-adjust: 100%; /* Firefox support */
     -ms-text-size-adjust: 100%; /* IE/Edge support */
-    text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
