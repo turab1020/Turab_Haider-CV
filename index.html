@@ -7,25 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Turab Haider | CS Portfolio</title>
     
-    <!-- Preconnect to external resources -->
+    <!-- External fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Preload critical assets for instant loading -->
+    <!-- Preload assets -->
     <link rel="preload" href="images/profile.jpg" as="image">
     <link rel="preload" href="images/candy-crush-demo.mp4" as="video" type="video/mp4">
     <link rel="preload" href="images/banking-demo.mp4" as="video" type="video/mp4">
     <link rel="preload" href="images/assembly-demo.mp4" as="video" type="video/mp4">
     <link rel="preload" href="images/app-demo.mp4" as="video" type="video/mp4">
     
-    <!-- Critical CSS first -->
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Fonts with display=swap for fast rendering -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome with non-blocking load -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
@@ -326,7 +326,7 @@
 
     <script src="js/main.js"></script>
     
-    <!-- Register Service Worker for offline caching and instant repeat visits -->
+    <!-- Service worker -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

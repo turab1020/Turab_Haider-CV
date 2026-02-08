@@ -1,11 +1,8 @@
-/**
- * Service Worker for CV Portfolio
- * Caches assets for instant loading on repeat visits
- */
+// Service Worker - handles caching for offline support
 
 const CACHE_NAME = 'cv-portfolio-v1';
 
-// Assets to cache immediately on install
+// Files to cache
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -18,22 +15,22 @@ const ASSETS_TO_CACHE = [
     '/images/app-demo.mp4'
 ];
 
-// Install event - cache core assets
+// Cache assets on install
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
-                console.log('Service Worker: Caching assets');
+                console.log('SW: Caching files');
                 return cache.addAll(ASSETS_TO_CACHE);
             })
             .then(() => self.skipWaiting())
             .catch((err) => {
-                console.log('Service Worker: Cache failed', err);
+                console.log('SW: Cache failed', err);
             })
     );
 });
 
-// Activate event - clean up old caches
+// Clean up old caches
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
@@ -46,12 +43,11 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Serve cached files, fetch from network if not cached
 self.addEventListener('fetch', (event) => {
-    // Only handle GET requests
     if (event.request.method !== 'GET') return;
     
-    // Skip cross-origin requests (fonts, CDN, etc.)
+    // Skip external requests
     if (!event.request.url.startsWith(self.location.origin)) {
         return;
     }
@@ -60,8 +56,7 @@ self.addEventListener('fetch', (event) => {
         caches.match(event.request)
             .then((cachedResponse) => {
                 if (cachedResponse) {
-                    // Return cached version immediately
-                    // Also fetch fresh version in background (stale-while-revalidate)
+                    // Return cache, update in background
                     const fetchPromise = fetch(event.request)
                         .then((networkResponse) => {
                             if (networkResponse && networkResponse.status === 200) {
@@ -76,14 +71,13 @@ self.addEventListener('fetch', (event) => {
                     return cachedResponse;
                 }
                 
-                // Not in cache - fetch from network and cache it
+                // Fetch and cache new requests
                 return fetch(event.request)
                     .then((networkResponse) => {
                         if (!networkResponse || networkResponse.status !== 200) {
                             return networkResponse;
                         }
                         
-                        // Cache the fetched response
                         const responseClone = networkResponse.clone();
                         caches.open(CACHE_NAME)
                             .then((cache) => cache.put(event.request, responseClone));

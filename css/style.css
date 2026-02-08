@@ -1,23 +1,23 @@
 :root {
-    /* Theme Colors */
+    /* Colors */
     --bg-base: #A4550A;
     --text-primary: #ffffff;
     --text-secondary: #e0e0e0;
     --accent-color: #f59e0b;
     --accent-light: #fbbf24;
     
-    /* Mesh Gradient Palette */
+    /* Mesh gradients */
     --mesh-1: #43000D; 
     --mesh-2: #673400; 
     --mesh-3: #4C4A45; 
     --mesh-4: #3E2723; 
 
-    /* Glassmorphism Configuration (Dark Mode) */
+    /* Glass effect */
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-highlight: rgba(255, 255, 255, 0.5); 
     
-    /* Enhanced Shadow definitions */
+    /* Shadows */
     --glass-shadow: 
         0 25px 50px -12px rgba(0, 0, 0, 0.5), 
         0 8px 16px -8px rgba(0, 0, 0, 0.3),
@@ -34,7 +34,7 @@
     --card-radius: 28px;
 }
 
-/* Light Mode Overrides */
+/* Light mode */
 body.light-mode {
     --bg-base: #d4820a;
     --text-primary: #1a1a1a;
@@ -51,7 +51,6 @@ body.light-mode {
     --glass-border: rgba(255, 255, 255, 0.9); 
     --glass-highlight: #ffffff; 
     
-    /* Enhanced shadows for light mode */
     --glass-shadow: 
         0 25px 50px -12px rgba(0, 0, 0, 0.15), 
         0 8px 16px -8px rgba(0, 0, 0, 0.1),
@@ -66,7 +65,7 @@ body.light-mode {
     --profile-bg: linear-gradient(145deg, rgba(255,255,255,1), rgba(245, 230, 210, 0.9));
 }
 
-/* Base Reset */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -75,7 +74,6 @@ body.light-mode {
 
 html {
     scroll-behavior: smooth;
-    /* Prevent horizontal scroll */
     overflow-x: hidden;
 }
 
@@ -84,17 +82,17 @@ body {
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, sans-serif;
     min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    min-height: 100dvh;
     overflow-x: hidden;
     transition: color 0.3s ease;
-    font-size: clamp(15px, 2.5vw, 17px); /* Fluid base font size */
-    -webkit-text-size-adjust: 100%; /* Prevent iOS text size adjustment */
-    -ms-text-size-adjust: 100%; /* IE/Edge support */
-    text-size-adjust: 100%; /* Standard property */
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    font-size: clamp(15px, 2.5vw, 17px);
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Background Animation Engine */
+/* Background */
 .mesh-bg {
     position: fixed;
     top: 0;
@@ -104,7 +102,7 @@ body {
     z-index: -1;
     background: var(--bg-base);
     overflow: hidden;
-    contain: strict; /* Performance optimization */
+    contain: strict;
 }
 
 .mesh-color {
@@ -115,8 +113,8 @@ body {
     opacity: 0.6;
     filter: blur(80px);
     mix-blend-mode: hard-light;
-    will-change: transform; /* GPU acceleration hint */
-    transform: translateZ(0); /* Force GPU layer */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .color-1 {
@@ -151,7 +149,7 @@ body {
     animation: drift4 28s infinite linear;
 }
 
-/* Navigation Layout */
+/* Navigation */
 .nav-container {
     position: fixed;
     top: 20px;
@@ -161,21 +159,21 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    max-width: calc(100vw - 24px); /* Prevent overflow on small screens */
+    max-width: calc(100vw - 24px);
     width: auto;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
                 opacity 0.3s ease;
     will-change: transform;
 }
 
-/* Hidden state for scroll */
+/* Nav hidden state */
 .nav-container.nav-hidden {
     transform: translateX(-50%) translateY(-100%);
     opacity: 0;
     pointer-events: none;
 }
 
-/* Navigation Pills */
+/* Nav pills */
 .pill-nav {
     padding: 6px 8px;
     background: rgba(0, 0, 0, 0.45);
@@ -245,7 +243,7 @@ body.light-mode .pill-nav-link.active {
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-/* Theme Toggle Capsule */
+/* Theme toggle */
 .theme-capsule {
     width: 42px;
     height: 42px;
@@ -286,7 +284,7 @@ body.light-mode .theme-capsule:hover {
     color: #000000;
 }
 
-/* Animations */
+/* Keyframes */
 @keyframes drift1 {
     0% { transform: translate(0, 0); }
     33% { transform: translate(10vw, 20vh); }
@@ -313,7 +311,7 @@ body.light-mode .theme-capsule:hover {
     100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Main Layout Container */
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -323,7 +321,7 @@ body.light-mode .theme-capsule:hover {
     width: 100%;
 }
 
-/* Bento Grid Layout */
+/* Bento grid */
 .bento-grid {
     display: flex;
     flex-wrap: wrap;
@@ -389,7 +387,7 @@ body.light-mode .bento-card:hover {
     border-color: rgba(0, 0, 0, 0.08);
 }
 
-/* Grid Spans */
+/* Spans */
 .span-2 {
     flex: 1 1 100%;
 }
@@ -427,7 +425,7 @@ body.light-mode .bento-card:hover {
     min-height: 0;
 }
 
-/* Light Mode Card Adjustments */
+/* Light mode cards */
 body.light-mode .bento-card {
     background: rgba(255, 255, 255, 0.7);
 }
@@ -438,7 +436,7 @@ body.light-mode .bento-card {
     }
 }
 
-/* Card Hover Shine Effect */
+/* Card shine effect */
 .bento-card::before {
     content: "";
     position: absolute;
@@ -458,7 +456,7 @@ body.light-mode .bento-card {
     transition: left 0.8s ease; 
 }
 
-/* Inner Radial Glow */
+/* Card glow */
 .bento-card::after {
     content: "";
     position: absolute;
@@ -472,7 +470,7 @@ body.light-mode .bento-card {
     z-index: 0;
 }
 
-/* Timeline Styling */
+/* Timeline */
 .timeline-container {
     position: relative;
     padding-left: 30px;
@@ -562,7 +560,7 @@ body.light-mode .timeline-marker {
     line-height: 1.6;
 }
 
-/* Video Preview Wrapper */
+/* Video preview */
 .content-wrapper {
     display: flex;
     flex-direction: row;
@@ -593,7 +591,7 @@ body.light-mode .timeline-marker {
     position: relative;
 }
 
-/* Loading skeleton animation for videos */
+/* Loading shimmer */
 .project-preview::before {
     content: '';
     position: absolute;
@@ -612,13 +610,13 @@ body.light-mode .timeline-marker {
     transition: opacity 0.3s ease;
 }
 
-/* Hide shimmer when video is loaded */
+/* Hide shimmer when loaded */
 .project-preview:has(video[src]:not([src=""])) video:not(.loading)::before,
 .project-preview.loaded::before {
     opacity: 0;
 }
 
-/* Ensure video appears above skeleton */
+/* Video z-index */
 .project-preview video {
     position: relative;
     z-index: 2;
@@ -655,7 +653,7 @@ body.light-mode .project-preview:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Portrait orientation adjustment */
+/* Portrait video */
 .project-preview.portrait {
     width: 80px;
     max-height: 160px;
@@ -674,7 +672,7 @@ body.light-mode .project-preview:hover {
     object-fit: contain;
 }
 
-/* Timeline Active/Open States */
+/* Timeline active state */
 .timeline-item.active .timeline-content {
     max-height: 400px; /* Enough for description + video */
     opacity: 1;
@@ -690,7 +688,7 @@ body.light-mode .project-preview:hover {
     box-shadow: 0 0 15px var(--accent-color);
 }
 
-/* Hover effects for non-touch devices */
+/* Hover effects (non-touch) */
 @media (hover: hover) and (pointer: fine) {
     .timeline-item:hover .timeline-content {
         max-height: 400px;
@@ -717,7 +715,7 @@ body.light-mode .project-preview:hover {
     font-weight: 600;
 }
 
-/* Tech Categories */
+/* Tech categories */
 .tech-category { 
     display: flex;
     flex-direction: column;
@@ -741,7 +739,7 @@ body.light-mode .project-preview:hover {
     display: inline-block;
 }
 
-/* General Typography */
+/* Typography */
 h1 {
     font-family: 'Inter', sans-serif;
     font-weight: 800;
@@ -759,7 +757,7 @@ h1 {
     background-clip: text;
 }
 
-/* Restore solid color for light mode readability */
+/* Light mode h1 */
 body.light-mode h1 {
     background: none;
     -webkit-text-fill-color: var(--text-primary);
@@ -778,7 +776,7 @@ h2 {
     display: inline-block;
 }
 
-/* Subtle underline accent for h2 */
+/* H2 underline */
 h2::after {
     content: '';
     position: absolute;
@@ -830,7 +828,7 @@ p {
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
 }
 
-/* Pulse Animation */
+/* Pulse */
 .pulse {
     width: 8px; 
     height: 8px;
@@ -847,7 +845,7 @@ p {
     100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } 
 }
 
-/* Tags & Skills */
+/* Tags */
 .tags { 
     display: flex; 
     flex-wrap: wrap; 
@@ -896,7 +894,7 @@ body.light-mode .tags span:hover {
         inset 0 1px 0 rgba(255,255,255,1);
 }
 
-/* List Items */
+/* Lists */
 .list-content { 
     display: flex; 
     flex-direction: column; 
@@ -993,7 +991,7 @@ body.light-mode .social-links a::after {
     background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
 }
 
-/* Contact Form */
+/* Contact form */
 .contact-form-card {
     min-height: 0;
 }
@@ -1110,7 +1108,7 @@ body.light-mode .form-group textarea {
     border-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Header & Profile Photo */
+/* Profile */
 .profile-card { 
     flex: 1 1 100%; 
     display: flex;
@@ -1165,7 +1163,7 @@ body.light-mode .form-group textarea {
     pointer-events: none;
 }
 
-/* Footer & Download Button */
+/* Footer */
 .site-footer {
     text-align: center;
     padding: 60px 0 40px;
@@ -1238,12 +1236,11 @@ body.light-mode .download-btn:hover {
     transform: translateY(-2px);
 }
 
-/* ------------------------------------------
-   RESPONSIVE LAYOUT CONFIGURATION
-   ------------------------------------------
-*/
+/* ----------------------
+   RESPONSIVE
+   ---------------------- */
 
-/* Large Tablets / Small Laptops */
+/* 1024px */
 @media (max-width: 1024px) {
     .container {
         padding: 95px 16px 50px;
@@ -1276,7 +1273,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Tablets */
+/* 900px */
 @media (max-width: 900px) {
     .pill-nav-link {
         padding: 8px 14px;
@@ -1289,13 +1286,12 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Tablet Portrait */
+/* 768px */
 @media (max-width: 768px) {
     :root {
         --card-radius: 20px;
     }
     
-    /* Reduce animation intensity on mobile for performance */
     .mesh-color {
         filter: blur(60px);
         opacity: 0.5;
@@ -1434,7 +1430,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Mobile Devices */
+/* 640px */
 @media (max-width: 640px) {
     .bento-grid {
         flex-direction: column;
@@ -1524,7 +1520,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Small Mobile - Intermediate */
+/* 550px */
 @media (max-width: 550px) {
     .pill-nav-link {
         padding: 6px 7px;
@@ -1586,7 +1582,6 @@ body.light-mode .download-btn:hover {
         --card-radius: 18px;
     }
     
-    /* Further reduce animation intensity on small screens */
     .mesh-color {
         filter: blur(40px);
         opacity: 0.4;
@@ -1876,7 +1871,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Extra Small Devices (SE, older phones) */
+/* 320px */
 @media (max-width: 320px) {
     .nav-container {
         top: 8px;
@@ -1916,7 +1911,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Landscape Orientation - Mobile */
+/* Landscape */
 @media (max-height: 500px) and (orientation: landscape) {
     .container {
         padding-top: 60px;
@@ -1949,7 +1944,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Touch Device Optimizations */
+/* Touch devices */
 @media (hover: none) and (pointer: coarse) {
     /* Disable hover effects that don't work well on touch */
     .bento-card:hover {
@@ -1997,7 +1992,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Reduced Motion Preference */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -2016,7 +2011,7 @@ body.light-mode .download-btn:hover {
     }
 }
 
-/* Print Styles */
+/* Print */
 @media print {
     .mesh-bg,
     .nav-container,
