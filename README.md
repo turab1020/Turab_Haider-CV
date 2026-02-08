@@ -1,63 +1,61 @@
-# 📄 Personal CV Portfolio Website
+# Personal CV Portfolio Website
 
-A modern, responsive CV/Portfolio website built with HTML, CSS, and JavaScript featuring a glassmorphism design with animated mesh gradients.
+A modern, responsive CV/Portfolio website built with HTML, CSS, and JavaScript. Features a clean glassmorphism design, animated mesh gradients, and a focus on clarity and performance.
 
-## 👤 Student Information
+## Student Information
 
 - **Name:** Turab Haider
 - **Roll Number:** 23L-0995
 - **Course:** Web Programming
 - **Institution:** FAST NUCES, Lahore
 
-## 🔗 Links
+## Links
 
 - **GitHub:** [github.com/turab1020/CV-Portfolio-Resume](https://github.com/turab1020/CV-Portfolio-Resume)
-- **Visit Live:** [Turab Haider | CS Portfolio](https://turab-haider-cv.vercel.app)
+- **Live Demo:** [Turab Haider | CS Portfolio](https://turab-haider-cv.vercel.app)
 
-## ✨ Features
+## Features
 
-### Required Sections
-- ✅ **Header** - Name, Title, Profile Photo
-- ✅ **About Me** - Professional summary
-- ✅ **Education** - Academic background
-- ✅ **Skills** - Key strengths and tech stack
-- ✅ **Experience/Projects** - Work history and project showcase with video previews
-- ✅ **Contact Information** - Phone, email, social links
-- ✅ **Footer** - Copyright and download resume button
+### Main Sections
+- Header with name, title, and profile photo
+- About Me: concise professional summary
+- Education: academic background
+- Skills: key strengths and tech stack
+- Experience/Projects: work history and project showcase with video previews
+- Contact Information: phone, email, and social links
+- Footer: copyright and resume download
 
-### Bonus Features (+1 Absolute)
-- ✅ **Dark/Light Mode** - Toggle between themes with localStorage persistence
-- ✅ **Downloadable CV** - PDF resume download button
-- ✅ **Animations** - Card hover effects, stagger animations, gradient animations
-- ✅ **Contact Form** - Functional contact form with Formspree integration
+### Additional Highlights
+- Dark/Light mode toggle with persistent preference
+- Downloadable PDF resume
+- Smooth card and gradient animations
+- Contact form (Formspree integration)
+- Glassmorphism UI with backdrop blur
+- Animated mesh gradient background
+- Responsive design for all devices
+- Bento grid layout with Flexbox
+- Smooth scroll navigation with active state
+- Project video previews (hover-to-play)
+- Social links (GitHub, LinkedIn, Email)
 
-### Design Highlights
-- 🎨 Glassmorphism UI with backdrop blur effects
-- 🌈 Animated mesh gradient background
-- 📱 Fully responsive (Mobile, Tablet, Desktop)
-- 🎯 Bento grid layout with Flexbox components
-- ⚡ Smooth scroll navigation with active state tracking
-- 🎬 Project video previews with hover-to-play
-- 🔗 Social links (GitHub, LinkedIn, Email)
+### Performance and Optimization
+- Video preloading with smart lazy loading
+- Asset preload hints in HTML head
+- Network-aware loading adapts to connection speed
+- Service worker for offline caching and instant repeat visits
+- Loading shimmer for video feedback
+- GPU-accelerated animations
 
-### Performance Optimizations
-- 🚀 **Video Preloading** - Smart lazy loading with `data-src` attributes
-- 📦 **Asset Preload Hints** - Critical resources preloaded in HTML head
-- 🌐 **Network-Aware Loading** - Adapts to connection speed (4G/3G/2G)
-- 💾 **Service Worker Caching** - Instant loading on repeat visits
-- ✨ **Loading Shimmer** - Visual feedback while videos load
-- 🎯 **GPU Acceleration** - Hardware-accelerated animations
+## Technologies Used
 
-## 🛠️ Technologies Used
+- HTML5 (semantic markup)
+- CSS3 (Flexbox, variables, animations, media queries)
+- JavaScript (DOM, localStorage, IntersectionObserver, Service Worker)
+- Font Awesome (icons)
+- Google Fonts (Inter)
+- Formspree (contact form backend)
 
-- **HTML5** - Semantic markup
-- **CSS3** - Flexbox, CSS Variables, Animations, Media Queries
-- **JavaScript** - DOM manipulation, LocalStorage, IntersectionObserver, Service Workers
-- **Font Awesome** - Icons
-- **Google Fonts** - Inter font family
-- **Formspree** - Contact form backend
-
-## 📁 File Structure
+## File Structure
 
 ```
 cv-portfolio/
@@ -73,14 +71,14 @@ cv-portfolio/
 └── README.md           # Project documentation
 ```
 
-## 🚀 Deployment
+## Deployment
 
-This project can be deployed on any static hosting platform:
+This project can be deployed on any static hosting platform, including:
 - Vercel
 - Netlify
 - GitHub Pages
 
-## 💻 Local Development
+## Local Development
 
 1. Clone the repository:
    ```bash
@@ -96,20 +94,16 @@ This project can be deployed on any static hosting platform:
    npx serve
    ```
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
-- **Desktop:** 1024px+
-- **Large Tablet:** 900px - 1024px
-- **Tablet:** 768px - 900px
-- **Mobile:** 480px - 768px
-- **Small Mobile:** 320px - 480px
-- **Extra Small:** < 320px
-- **Landscape Mode:** Optimized for mobile landscape orientation
+- Desktop: 1024px and above
+- Large Tablet: 900px - 1024px
+- Tablet: 768px - 900px
+- Mobile: 480px - 768px
+- Small Mobile: 320px - 480px
+- Extra Small: below 320px
+- Landscape Mode: Optimized for mobile landscape orientation
 
-## 📝 License
+## License
 
 © 2026 Turab Haider. All Rights Reserved.
-
----
-
-*Built with ❤️ for Web Programming Course Assignment*
