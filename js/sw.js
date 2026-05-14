@@ -1,89 +1,81 @@
-// Service Worker - handles caching for offline support
+// Service Worker — lightweight caching for offline support
+// Videos are NOT pre-cached (too large); they cache on first play.
 
-const CACHE_NAME = 'cv-portfolio-v1';
+const CACHE_NAME = 'cv-portfolio-v2';
 
-// Files to cache
-const ASSETS_TO_CACHE = [
-    '/',
-    '/index.html',
-    '/css/style.css',
-    '/js/main.js',
-    '/images/profile.jpg',
-    '/images/candy-crush-demo.mp4',
-    '/images/banking-demo.mp4',
-    '/images/assembly-demo.mp4',
-    '/images/app-demo.mp4'
+// Only cache small, critical assets on install
+const CRITICAL_ASSETS = [
+    './',
+    './index.html',
+    './css/style.css',
+    './js/main.js',
+    './images/profile.jpg'
 ];
 
-// Cache assets on install
+// Cache critical shell on install
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('SW: Caching files');
-                return cache.addAll(ASSETS_TO_CACHE);
-            })
+            .then((cache) => cache.addAll(CRITICAL_ASSETS))
             .then(() => self.skipWaiting())
-            .catch((err) => {
-                console.log('SW: Cache failed', err);
-            })
+            .catch((err) => console.log('SW: Cache failed', err))
     );
 });
 
-// Clean up old caches
+// Clean up old caches on activate
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames
-                    .filter((name) => name !== CACHE_NAME)
-                    .map((name) => caches.delete(name))
-            );
-        }).then(() => self.clients.claim())
+        caches.keys()
+            .then((names) => Promise.all(
+                names.filter(n => n !== CACHE_NAME).map(n => caches.delete(n))
+            ))
+            .then(() => self.clients.claim())
     );
 });
 
-// Serve cached files, fetch from network if not cached
+// Fetch strategy:
+//  - HTML/CSS/JS: stale-while-revalidate (fast + fresh)
+//  - Videos: cache-first (they're large, avoid re-downloading)
+//  - External: network-only (fonts, icons from CDN)
 self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') return;
-    
-    // Skip external requests
-    if (!event.request.url.startsWith(self.location.origin)) {
+
+    const url = new URL(event.request.url);
+
+    // Skip external requests — let the browser handle them normally
+    if (url.origin !== self.location.origin) return;
+
+    // Video files: cache-first (large, rarely change)
+    if (url.pathname.endsWith('.mp4')) {
+        event.respondWith(
+            caches.match(event.request).then((cached) => {
+                if (cached) return cached;
+                return fetch(event.request).then((response) => {
+                    if (response && response.status === 200) {
+                        const clone = response.clone();
+                        caches.open(CACHE_NAME).then(c => c.put(event.request, clone));
+                    }
+                    return response;
+                });
+            })
+        );
         return;
     }
-    
+
+    // Everything else: stale-while-revalidate
     event.respondWith(
-        caches.match(event.request)
-            .then((cachedResponse) => {
-                if (cachedResponse) {
-                    // Return cache, update in background
-                    const fetchPromise = fetch(event.request)
-                        .then((networkResponse) => {
-                            if (networkResponse && networkResponse.status === 200) {
-                                const responseClone = networkResponse.clone();
-                                caches.open(CACHE_NAME)
-                                    .then((cache) => cache.put(event.request, responseClone));
-                            }
-                            return networkResponse;
-                        })
-                        .catch(() => cachedResponse);
-                    
-                    return cachedResponse;
-                }
-                
-                // Fetch and cache new requests
-                return fetch(event.request)
-                    .then((networkResponse) => {
-                        if (!networkResponse || networkResponse.status !== 200) {
-                            return networkResponse;
-                        }
-                        
-                        const responseClone = networkResponse.clone();
-                        caches.open(CACHE_NAME)
-                            .then((cache) => cache.put(event.request, responseClone));
-                        
-                        return networkResponse;
-                    });
-            })
+        caches.match(event.request).then((cached) => {
+            const fetchPromise = fetch(event.request)
+                .then((response) => {
+                    if (response && response.status === 200) {
+                        const clone = response.clone();
+                        caches.open(CACHE_NAME).then(c => c.put(event.request, clone));
+                    }
+                    return response;
+                })
+                .catch(() => cached);
+
+            return cached || fetchPromise;
+        })
     );
 });
