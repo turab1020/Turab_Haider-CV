@@ -622,8 +622,6 @@ body.light-mode .submit-btn { background:#111; color:#fff; }
     .project-card:hover { transform:none; }
     .project-card:hover video { opacity:0.6; }
     .project-card.touch-active video { opacity:0.85; }
-    .nav-link { min-height: 66px; display:flex; align-items:center; }
-    .theme-btn { min-width: 66px; min-height: 66px; }
     .social-links a { padding: 12px; }
 }
 
