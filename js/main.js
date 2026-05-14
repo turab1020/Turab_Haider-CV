@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Theme toggle ──
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = themeBtn.querySelector('i');
-    if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light-mode');
+    if (document.body.classList.contains('light-mode')) {
         themeIcon.classList.replace('fa-sun', 'fa-moon');
     }
     themeBtn.addEventListener('click', () => {

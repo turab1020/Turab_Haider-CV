@@ -31,7 +31,12 @@
 </head>
 
 <body>
-
+    <!-- ── Synchronous Theme Initialization ── -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
     <!-- ── Ambient background ── -->
     <div class="ambient-bg" aria-hidden="true">
         <div class="glow glow-1"></div>
