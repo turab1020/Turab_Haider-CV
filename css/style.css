@@ -107,7 +107,8 @@ body.light-mode .nav-link.active {
     background: rgba(0,0,0,0.05);
 }
 .theme-btn {
-    width: clamp(44px, 5vw, 60px); height: clamp(44px, 5vw, 60px); border-radius:50%;
+    width: clamp(44px, 5vw, 60px); aspect-ratio: 1 / 1; border-radius:50%;
+    flex-shrink: 0;
     border: 1px solid var(--border);
     background: transparent; color: var(--text-dim);
     font-size: clamp(1.2rem, 1.5vw, 1.50rem); cursor:pointer;
@@ -574,7 +575,7 @@ body.light-mode .submit-btn { background:#111; color:#fff; }
     .nav-bar { padding: clamp(8px, 1.5vw, 12px) clamp(10px, 2vw, 16px); }
     .nav-links { gap: clamp(4px, 1vw, 8px); width: 100%; justify-content: center; }
     .nav-link { font-size: clamp(0.65rem, 2.5vw, 0.85rem); padding: clamp(6px, 1.5vw, 8px) clamp(6px, 2vw, 12px); }
-    .theme-btn { width: clamp(30px, 7.5vw, 38px); height: clamp(30px, 7.5vw, 38px); font-size: clamp(0.9rem, 2.5vw, 1.15rem); }
+    .theme-btn { width: clamp(30px, 7.5vw, 38px); font-size: clamp(0.9rem, 2.5vw, 1.15rem); }
 }
 
 @media (max-width:480px) {
